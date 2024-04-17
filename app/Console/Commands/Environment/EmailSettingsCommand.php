@@ -44,7 +44,7 @@ class EmailSettingsCommand extends Command
             trans('command/messages.environment.mail.ask_driver'),
             [
                 'smtp' => 'Servidor SMTP',
-                'mail' => 'Função de Email interno do PHP',
+                'sendmail' => 'Binario do SendMail',
                 'mailgun' => 'E-mail transacional do Mailgun',
                 'mandrill' => 'E-mail transacional do Mandrill',
                 'postmark' => 'E-mail transacional do Postmark',
