@@ -120,14 +120,14 @@ export default ({ database, className }: Props) => {
                 <Can action={'database.view_password'}>
                     <div css={tw`mt-6`}>
                         <Label>Senha</Label>
-                        <CopyOnClick text={database.password}>
+                        <CopyOnClick text={database.password} showInNotification={false}>
                             <Input type={'text'} readOnly value={database.password} />
                         </CopyOnClick>
                     </div>
                 </Can>
                 <div css={tw`mt-6`}>
                     <Label>String de conexão JDBC</Label>
-                    <CopyOnClick text={jdbcConnectionString}>
+                    <CopyOnClick text={jdbcConnectionString} showInNotification={false}>
                         <Input type={'text'} readOnly value={jdbcConnectionString} />
                     </CopyOnClick>
                 </div>
