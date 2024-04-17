@@ -4,15 +4,15 @@
         "version": "PTDL_v2",
         "update_url": null
     },
-    "exported_at": "2023-02-04T14:45:12-05:00",
+    "exported_at": "2024-04-17T11:37:41-03:00",
     "name": "Rust",
     "author": "support@pterodactyl.io",
-    "description": "O único objetivo em Rust é sobreviver. Para fazer isso, você precisará superar lutas como fome, sede e frio. Faça uma fogueira. Construir um abrigo. Matar animais para obter carne. Proteja-se de outros jogadores e mate-os para comer. Crie alianças com outros jogadores e forme uma cidade. Faça o que for preciso para sobreviver.",
+    "description": "O único objetivo do Rust é sobreviver. Para isso, você precisará superar lutas como a fome, a sede e o frio. Faça uma fogueira. Construir um abrigo. Matar animais para obter carne. Proteja-se de outros jogadores e mate-os para obter carne. Crie alianças com outros jogadores e forme uma cidade. Faça o que for preciso para sobreviver.",
     "features": [
         "steam_disk_space"
     ],
     "docker_images": {
-        "ghcr.io\/pterodactyl\/games:rust": "ghcr.io\/pterodactyl\/games:rust"
+        "quay.io\/pterodactyl\/core:rust": "quay.io\/pterodactyl\/core:rust"
     },
     "file_denylist": [],
     "startup": ".\/RustDedicated -batchmode +server.port {{SERVER_PORT}} +server.queryport {{QUERY_PORT}} +server.identity \"rust\" +rcon.port {{RCON_PORT}} +rcon.web true +server.hostname \\\"{{HOSTNAME}}\\\" +server.level \\\"{{LEVEL}}\\\" +server.description \\\"{{DESCRIPTION}}\\\" +server.url \\\"{{SERVER_URL}}\\\" +server.headerimage \\\"{{SERVER_IMG}}\\\" +server.logoimage \\\"{{SERVER_LOGO}}\\\" +server.maxplayers {{MAX_PLAYERS}} +rcon.password \\\"{{RCON_PASS}}\\\" +server.saveinterval {{SAVEINTERVAL}} +app.port {{APP_PORT}}  $( [ -z ${MAP_URL} ] && printf %s \"+server.worldsize \\\"{{WORLD_SIZE}}\\\" +server.seed \\\"{{WORLD_SEED}}\\\"\" || printf %s \"+server.levelurl {{MAP_URL}}\" ) {{ADDITIONAL_ARGS}}",
@@ -31,28 +31,18 @@
     },
     "variables": [
         {
-            "name": "Nome do Servidor",
-            "description": "O nome do seu servidor na lista de servidores públicos.",
+            "name": "Nome do servidor",
+            "description": "O nome de seu servidor na lista de servidores públicos.",
             "env_variable": "HOSTNAME",
-            "default_value": "A Rust Server",
+            "default_value": "Um servidor Rust",
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string|max:60",
             "field_type": "text"
         },
         {
-            "name": "OxideMod",
-            "description": "Defina se deseja que o servidor use e atualize automaticamente o OxideMod ou não. As opções válidas são \"1\" para verdadeiro e \"0\" para falso.",
-            "env_variable": "OXIDE",
-            "default_value": "0",
-            "user_viewable": true,
-            "user_editable": true,
-            "rules": "required|boolean",
-            "field_type": "text"
-        },
-        {
-            "name": "Level",
-            "description": "O arquivo de mundo para Rust usar.",
+            "name": "Level(Mundo)",
+            "description": "O arquivo de mundo a ser usado pelo Rust.",
             "env_variable": "LEVEL",
             "default_value": "Procedural Map",
             "user_viewable": true,
@@ -62,9 +52,9 @@
         },
         {
             "name": "Descrição",
-            "description": "A descrição sob o título do seu servidor. Comumente usado para regras e informações. Use \\n para novas linhas.",
+            "description": "A descrição sob o título do servidor. Comumente usado para regras e informações. Use \\n para novas linhas.",
             "env_variable": "DESCRIPTION",
-            "default_value": "Powered by Pterodactyl",
+            "default_value": "Desenvolvido por Pterodactyl",
             "user_viewable": true,
             "user_editable": true,
             "rules": "required|string",
@@ -72,7 +62,7 @@
         },
         {
             "name": "URL",
-            "description": "A URL do seu servidor. Isso é o que aparece ao clicar no botão \"Visitar site\".",
+            "description": "O URL de seu servidor. Isso é o que aparece quando você clica no botão \"Visit Website\".",
             "env_variable": "SERVER_URL",
             "default_value": "http:\/\/pterodactyl.io",
             "user_viewable": true,
@@ -81,8 +71,8 @@
             "field_type": "text"
         },
         {
-            "name": "Tamanho do Mundo",
-            "description": "O tamanho do mundo para um mapa processual.",
+            "name": "Tamanho do mundo",
+            "description": "O tamanho do mundo para do mapa procedural.",
             "env_variable": "WORLD_SIZE",
             "default_value": "3000",
             "user_viewable": true,
@@ -91,8 +81,8 @@
             "field_type": "text"
         },
         {
-            "name": "Seed do Mundo",
-            "description": "A semente para um mapa processual.",
+            "name": "Semente do Mundo",
+            "description": "A semente do mapa procedural.",
             "env_variable": "WORLD_SEED",
             "default_value": "",
             "user_viewable": true,
@@ -101,8 +91,8 @@
             "field_type": "text"
         },
         {
-            "name": "Máximo de Jogadores",
-            "description": "A quantidade máxima de jogadores permitidos no servidor ao mesmo tempo.",
+            "name": "Máximo de jogadores",
+            "description": "A quantidade máxima de jogadores permitida no servidor.",
             "env_variable": "MAX_PLAYERS",
             "default_value": "40",
             "user_viewable": true,
@@ -112,7 +102,7 @@
         },
         {
             "name": "Imagem do Servidor",
-            "description": "A imagem de cabeçalho para o topo da sua listagem de servidores.",
+            "description": "A imagem do cabeçalho para a parte superior da listagem do servidor.",
             "env_variable": "SERVER_IMG",
             "default_value": "",
             "user_viewable": true,
@@ -121,7 +111,7 @@
             "field_type": "text"
         },
         {
-            "name": "Porta do RCON ",
+            "name": "Porta RCON",
             "description": "Porta para conexões RCON.",
             "env_variable": "RCON_PORT",
             "default_value": "28016",
@@ -132,7 +122,7 @@
         },
         {
             "name": "Senha do RCON",
-            "description": "senha de acesso RCON.",
+            "description": "Senha de acesso ao RCON.",
             "env_variable": "RCON_PASS",
             "default_value": "",
             "user_viewable": true,
@@ -151,8 +141,8 @@
             "field_type": "text"
         },
         {
-            "name": "Argumentos Adicionais",
-            "description": "Adicionar parâmetros de inicialização adicionais ao servidor.",
+            "name": "Argumentos adicionais",
+            "description": "Adicionar parámetros de inicialização adicionais ao servidor.",
             "env_variable": "ADDITIONAL_ARGS",
             "default_value": "",
             "user_viewable": true,
@@ -161,8 +151,8 @@
             "field_type": "text"
         },
         {
-            "name": "Porta do aplicativo",
-            "description": "Porta para o aplicativo Rust+. -1 para desativar.",
+            "name": "Porta do App",
+            "description": "Porta para o App Rust+. -1 para desativar.",
             "env_variable": "APP_PORT",
             "default_value": "28082",
             "user_viewable": true,
@@ -172,7 +162,7 @@
         },
         {
             "name": "Logo do Servidor",
-            "description": "O logotipo circular do servidor para o aplicativo Rust+.",
+            "description": "O Logo circular do servidor para o App Rust+.",
             "env_variable": "SERVER_LOGO",
             "default_value": "",
             "user_viewable": true,
@@ -181,8 +171,8 @@
             "field_type": "text"
         },
         {
-            "name": "URL do mapa personalizado",
-            "description": "Substitui o mapa pelo do URL de download direto. URLs inválidos farão com que o servidor trave.",
+            "name": "URL de mapa personalizado",
+            "description": "Substitui o mapa pelo mapa do URL de download direto. URLs inválidos farão com que o servidor falhe.",
             "env_variable": "MAP_URL",
             "default_value": "",
             "user_viewable": true,
@@ -191,13 +181,23 @@
             "field_type": "text"
         },
         {
-            "name": "Query Port",
-            "description": "Server Query Port. Can't be the same as Game's primary port.",
+            "name": "Porta Query",
+            "description": "Porta de query(consulta) do servidor. Não pode ser a mesma que a porta principal do jogo.",
             "env_variable": "QUERY_PORT",
             "default_value": "27017",
             "user_viewable": true,
             "user_editable": false,
             "rules": "required|integer",
+            "field_type": "text"
+        },
+        {
+            "name": "Estrutura de Modding",
+            "description": "A estrutura de modificação a ser usada: carbon, oxide, vanilla.\r\nO padrão é \"vanilla\" para uma instalação de servidor sem modificações.",
+            "env_variable": "FRAMEWORK",
+            "default_value": "vanilla",
+            "user_viewable": true,
+            "user_editable": true,
+            "rules": "required|in:carbon,oxide,vanilla",
             "field_type": "text"
         }
     ]
