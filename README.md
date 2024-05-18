@@ -72,7 +72,7 @@ e há muitos outros jogos disponíveis fornecidos pela comunidade. Alguns desses
 
 Pterodactyl-BR é um York que nós da Next-panel traduzimos para Português. De forma alguma a nossa equipe são ou pertencem a Equipe do Pterodactyl, somos apenas um grupo cujo temos os mesmos objetivos.
 
-Pterodactyl-BR® 2023 - Next-Panel [@Drylian](https://github.com/drylian) e [@Ashu](https://github.com/Ashu11-A/).
+Pterodactyl-BR® 2023 - 2024 Next-Panel [@Drylian](https://github.com/drylian) e [@Ashu](https://github.com/Ashu11-A/).
 
 Pterodactyl® Copyright © 2015 - 2022 [@Dane Everitt](https://github.com/DaneEveritt) e colaboradores.
 
