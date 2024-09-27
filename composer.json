@@ -40,7 +40,7 @@
         "matriphe/iso-639": "~1.2",
         "phpseclib/phpseclib": "~3.0.18",
         "pragmarx/google2fa": "~8.0.0",
-        "predis/predis": "~2.1.1",
+        "predis/predis": "~2.2.2",
         "prologue/alerts": "~1.1.0",
         "psr/cache": "~3.0.0",
         "s1lentium/iptools": "~1.2.0",
