@@ -35,7 +35,7 @@
         "laravel/tinker": "~2.8.1",
         "laravel/ui": "~4.2.1",
         "lcobucci/jwt": "~4.3.0",
-        "league/flysystem-aws-s3-v3": "~3.12.2",
+        "league/flysystem-aws-s3-v3": "~3.23.1",
         "league/flysystem-memory": "~3.10.3",
         "matriphe/iso-639": "~1.2",
         "phpseclib/phpseclib": "~3.0.18",
